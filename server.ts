@@ -90,7 +90,7 @@ app.post("/message/:sessionId", express.text({ type: "*/*" }), async (req, res) 
     return;
   }
   
-  await session.transport.handlePostMessage(req, res);
+  await session.transport.handlePostMessage(req, res, req.body);
 });
 
 app.listen(process.env.PORT || 3000, () => console.log("Server ready"));
