@@ -1,0 +1,28 @@
+DEPLOY TO RAILWAY - STEP BY STEP
+
+1. Go to https://github.com/new
+2. Create a new repository (public or private)
+3. On your computer, extract this ZIP file
+4. In the extracted folder, run:
+   git init
+   git add .
+   git commit -m "Deploy academic search MCP"
+   git remote add origin YOUR_GITHUB_REPO_URL
+   git push -u origin main
+
+5. Go to https://railway.app
+6. Click "New Project"
+7. Select "Deploy from GitHub repo"
+8. Choose the repository you just created
+9. Railway will build automatically
+
+10. Once deployed, get your URL from Railway
+11. Add to Claude.ai: https://YOUR-URL.railway.app/sse
+
+FILES IN THIS ZIP:
+- package.json (dependencies)
+- server.ts (main code)
+- tsconfig.json (TypeScript config)
+- Procfile (tells Railway how to start)
+
+This WILL work if you follow these steps!
