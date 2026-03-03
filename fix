@@ -1,0 +1,27 @@
+// Add this BEFORE the /sse endpoint:
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
+  res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
+  if (req.method === "OPTIONS") {
+    return res.sendStatus(200);
+  }
+  next();
+});
+
+// In your /sse endpoint, change res.setHeader to res.writeHead:
+res.writeHead(200, {
+  "Content-Type": "text/event-stream",
+  "Cache-Control": "no-cache, no-transform",
+  "Connection": "keep-alive",
+  "Access-Control-Allow-Origin": "*",
+  "X-Accel-Buffering": "no",
+});
+
+// Add this right after writeHead:
+res.write(": connected\n\n");
+
+// Change the /message endpoint to:
+app.post("/message", express.text({ type: "*/*" }), async (req, res) => {
+  res.json({ received: true });
+});
