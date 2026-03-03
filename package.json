@@ -1,0 +1,19 @@
+{
+  "name": "academic-search-mcp",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "start": "node build/server.js"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "1.27.1",
+    "@types/express": "5.0.1",
+    "@types/node": "25.3.3",
+    "@types/xml2js": "0.4.14",
+    "axios": "1.13.6",
+    "express": "4.21.2",
+    "typescript": "5.9.3",
+    "xml2js": "0.6.2"
+  }
+}
